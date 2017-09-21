@@ -7,3 +7,11 @@
 
 ## Space Complexity
 `O(n)`
+
+## Operations
+- void add(item)
+- void insert(index, itme)
+- void remove(item)
+- void delete(index)
+- item find(index)
+- Boolean empty()
