@@ -9,9 +9,8 @@
 `O(n)`
 
 ## Operations
-- void add(item)
-- void insert(index, itme)
-- void remove(item)
-- void delete(index)
-- item find(index)
-- Boolean empty()
+- `void add(Item)`
+- `void insert(Index, Item)`
+- `void remove(Index)`
+- `Item find(Index)`
+- `Boolean empty()`
