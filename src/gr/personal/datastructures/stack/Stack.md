@@ -1,13 +1,5 @@
 # Stack Theory
 
-## Advantages
-
-1.
-
-
-## Disadvantages
-
-1.
 ## Basic concepts
 
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/b/b4/Lifo_stack.png "Stack")
@@ -18,12 +10,12 @@ and pop, which removes the most recently added element that was not yet removed.
 Stacks are knows also as **LIFO** queues.
 Additionally, a peek operation may give access to the top without modifying the stack.
 
-## Time Complexity (Doubly, Circular, Singly)
+## Time Complexity
 | Access | Search | Insert | Delete |
 |:-------:|:-------:|:-------:|:-------:|
 | O(n) | O(n) | O(1) | O(1) |
 
-## Space Complexity (Doubly, Circular, Singly)
+## Space Complexity
 `O(n)`
 
 ## Operations
