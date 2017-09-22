@@ -34,7 +34,7 @@ A less common convention is to make it point to the first node of the list; in t
 ## Time Complexity (Doubly, Circular, Singly)
 | Access | Search | Insert | Delete |
 |:-------:|:-------:|:-------:|:-------:|
-| O(n) | O(n) | O(1) | O(1) | 
+| O(n) | O(n) | O(1) | O(1) |
 
 ## Space Complexity (Doubly, Circular, Singly)
 `O(n)` 
@@ -47,7 +47,7 @@ A less common convention is to make it point to the first node of the list; in t
 - `void remove(Index)`
 - `Boolean isEmpty()`
 
-## Real Fife Use
+## Real Life Use
 
 - One common sighted example is **low level memory management**
 (i.e. the *heap* as managed by malloc in C or new in Java, etc) is often implemented as a linked list,
