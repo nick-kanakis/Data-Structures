@@ -47,5 +47,16 @@ A less common convention is to make it point to the first node of the list; in t
 - `void remove(Index)`
 - `Boolean isEmpty()`
 
+## Real Fife Use
+
+- One common sighted example is **low level memory management**
+(i.e. the *heap* as managed by malloc in C or new in Java, etc) is often implemented as a linked list,
+with each node representing a used or available (free) block of memory.
+These blocks may be of any size, change size (combine and split),
+be freed or assigned in any order, and reordered.
+A linked list means you can keep track of all of these "nodes" and manipulate them fairly easily.
+
+- Also, Hashtables that use chaining to resolve hash collisions typically have
+ one linked list per bucket for the elements in that bucket.
 
 

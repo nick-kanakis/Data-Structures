@@ -14,3 +14,7 @@
 - `void remove(Index)`
 - `Item find(Index)`
 - `Boolean empty()`
+
+## Real Life Example
+
+- Arrays are heavily used in physics and computational mathematics
