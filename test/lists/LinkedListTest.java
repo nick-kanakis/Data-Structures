@@ -2,17 +2,21 @@ package lists;
 
 import gr.personal.datastructures.lists.implementation.LinkedList;
 import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Nicolas on 21/9/2017.
  */
 
 
-public class LinkedListTest extends TestCase {
+public class LinkedListTest  {
 
+    @Test
     public void testAdd(){
 
         ArrayList<Integer> expectedResults = new ArrayList();
@@ -33,6 +37,7 @@ public class LinkedListTest extends TestCase {
         }
     }
 
+    @Test
     public void testIsEmpty(){
         LinkedList<Integer> list = new LinkedList();
         assertEquals(true, list.isEmpty());
@@ -41,6 +46,7 @@ public class LinkedListTest extends TestCase {
         assertEquals(false, list.isEmpty());
     }
 
+    @Test
     public void testSize(){
         LinkedList<Integer> list = new LinkedList();
         assertEquals(0, list.size());
@@ -52,6 +58,7 @@ public class LinkedListTest extends TestCase {
         assertEquals(2, list.size());
     }
 
+    @Test
     public void testAddWithIndex(){
 
         LinkedList<Integer> list = new LinkedList();
@@ -76,6 +83,7 @@ public class LinkedListTest extends TestCase {
         }
     }
 
+    @Test
     public void testAddWithIndexToBeginning(){
 
         LinkedList<Integer> list = new LinkedList();
@@ -100,6 +108,7 @@ public class LinkedListTest extends TestCase {
         }
     }
 
+    @Test
     public void testAddWithIndexToEnd(){
 
         LinkedList<Integer> list = new LinkedList();
@@ -124,6 +133,7 @@ public class LinkedListTest extends TestCase {
         }
     }
 
+    @Test
     public void testGet(){
         LinkedList<Integer> list = new LinkedList();
         list.add(1);
@@ -136,7 +146,7 @@ public class LinkedListTest extends TestCase {
         assertEquals(4, list.get(4).intValue());
     }
 
-
+    @Test
     public void testRemove(){
         LinkedList<Integer> list = new LinkedList();
         list.add(1);
@@ -157,6 +167,7 @@ public class LinkedListTest extends TestCase {
         }
     }
 
+    @Test
     public void testRemoveBeginning(){
         LinkedList<Integer> list = new LinkedList();
         list.add(1);
@@ -177,6 +188,7 @@ public class LinkedListTest extends TestCase {
         }
     }
 
+    @Test
     public void testRemoveEnd(){
         LinkedList<Integer> list = new LinkedList();
         list.add(1);
