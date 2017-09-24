@@ -99,7 +99,6 @@ One more advantage of Linear probing is easy to compute.
 ## Operations
 - `void add(Key, Value)`
 - `void delete(Key)`
-- `void update(Key, Value)`
 - `Value retrieve(Key)`
 
 
