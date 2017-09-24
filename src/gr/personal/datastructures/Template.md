@@ -10,7 +10,7 @@
 1.
 ## Basic concepts
 
-## Time Complexity (Doubly, Circular, Singly)
+## Time Complexity
 | Access | Search | Insert | Delete |
 |:-------:|:-------:|:-------:|:-------:|
 | O() | O() | O() | O() |
