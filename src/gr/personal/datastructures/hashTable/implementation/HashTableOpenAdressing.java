@@ -9,6 +9,7 @@ package gr.personal.datastructures.hashTable.implementation;
  * This may cause clustering issues but Quadratic Probing/ double hashing is beyond the scope
  * of the Implementation
  *
+ * NOTE: Keys MUST be unique!
  */
 public class HashTableOpenAdressing <K,V> implements HashTable <K,V> {
     @Override
