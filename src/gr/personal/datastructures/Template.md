@@ -10,6 +10,9 @@
 1.
 ## Basic concepts
 
+![alt text](www........png "title")
+
+
 ## Time Complexity
 | Access | Search | Insert | Delete |
 |:-------:|:-------:|:-------:|:-------:|
