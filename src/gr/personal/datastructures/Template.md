@@ -1,13 +1,6 @@
 #  Theory
 
-## Advantages
 
-1.
-
-
-## Disadvantages
-
-1.
 ## Basic concepts
 
 ![alt text](www........png "title")
@@ -28,3 +21,12 @@
 ## Real Life Use
 
 -
+
+## Advantages
+
+1.
+
+
+## Disadvantages
+
+1.
