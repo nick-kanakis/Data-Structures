@@ -28,6 +28,12 @@ For a graph to be a tree it must follow some rules:
 3. **in-order**, a walk in which a node's left subtree, then the node itself, and finally its right subtree are traversed (Depth first).
 4. **level-order**, effectively performs a breadth-first search over the entirety of a tree; nodes are traversed level by level (Breadth first).
 
+### Why trees?
+
+- Trees (with some ordering e.g., BST) provide moderate access/search (quicker than Linked List and slower than arrays).
+- Trees provide moderate insertion/deletion (quicker than Arrays and slower than Unordered Linked Lists).
+- One reason to use trees might be because you want to store information that naturally forms a hierarchy
+
 ## Real Life Use
 
 - Representing hierarchical data
