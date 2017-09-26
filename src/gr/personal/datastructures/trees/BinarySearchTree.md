@@ -25,15 +25,33 @@ Binary Search Tree, is a node-based binary tree data structure which has the fol
 |:-------:|:-------:|:-------:|:-------:|
 | O(n) | O(n) | O(n) | O(n) |
 
+The worst O times are only with the tree has one branch (aka linked-list)
+
 ## Space Complexity (Doubly, Circular, Singly)
 `O(n)`
 
 ## Operations
 - `Value search(Key)`
 - `void insert(Key, Valye)`
+- `void delete(Key)`
 - `void preOrderTraversal()`
 - `void inOrderTraversal()`
 - `void postOrderTraversal()`
+
+Delete operation: (https://www.youtube.com/watch?v=x6At0nzX92o)
+
+- When the node is leaf just delete it.
+
+- When the node has one child delete the node and "move up" the child
+of the deleted node.
+
+- When the node has 2 children, go to the right sub-tree, and find the most
+left leaf. Replace the node you want to delete with the leaf and delete the node
+easily now that it is a leaf node.
+
+- When the nide has 2 children but the right sub-tree has no left nodes replace
+the first child of the node you want to delete with soon to be delete node.
+Delete that node. This is easy as the node has only one children.
 
 ## Real Life Use
 
