@@ -158,18 +158,13 @@ public class BinarySearchTree<V> {
             //Case 3.b: There is a left most element in RIGHT subtree of the deleted node.
             else {
                 Node minimumLeafNode = retrieveMinimumValue(rootOfRightSubtree);
-                deleteMinimumLeafOfLeftSubtree(rootOfRightSubtree);
+                deleteMinimumNode(rootOfRightSubtree);
                 toBeDeletedNode.key = minimumLeafNode.key;
                 toBeDeletedNode.value = minimumLeafNode.value;
             }
         }
     }
-
-
-    public V retrieveMinimumValue() {
-        return retrieveMinimumValue(root).value;
-    }
-
+    //todo: ??
     private Node retrieveMinimumValue(Node currentRoot) {
         if (currentRoot == null)  // this check will never be encountered.
             return null;
@@ -178,14 +173,14 @@ public class BinarySearchTree<V> {
         else
             return currentRoot;
     }
-
-    private Node deleteMinimumLeafOfLeftSubtree(Node currentRoot) {
+    //todo: ??
+    private Node deleteMinimumNode(Node currentRoot) {
         if (currentRoot == null)
             return null;
         if (currentRoot.leftChild == null)
             return currentRoot.rightChild;
 
-        currentRoot.leftChild = deleteMinimumLeafOfLeftSubtree(currentRoot.leftChild);
+        currentRoot.leftChild = deleteMinimumNode(currentRoot.leftChild);
         return currentRoot;
     }
 
