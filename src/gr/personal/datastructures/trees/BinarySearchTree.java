@@ -164,7 +164,9 @@ public class BinarySearchTree<V> {
             }
         }
     }
-    //todo: ??
+    /*
+    * Traverse to the left most child of the sub-tree, and return the node;
+    * */
     private Node retrieveMinimumValue(Node currentRoot) {
         if (currentRoot == null)  // this check will never be encountered.
             return null;
@@ -173,7 +175,12 @@ public class BinarySearchTree<V> {
         else
             return currentRoot;
     }
-    //todo: ??
+    /*
+    * 1) Find the left most node
+    * 2) Return the right child
+    * 3) Make the returned right child the new left child a node
+    * 4) Return current node so that (3) will be repeated but with nothing actually changing.
+    * */
     private Node deleteMinimumNode(Node currentRoot) {
         if (currentRoot == null)
             return null;
