@@ -12,6 +12,8 @@ Each node has a BalanceFactor:
 BalanceFactor(N) := Height(RightSubtree(N)) - Height(LeftSubtree(N))
 Where
 BalanceFactor(N) ∈ {–1,0,+1}
+And
+Height(N) = MAX(Height(N.leftChild), Height(N.rightChild))
 
 Balance factors can be kept up-to-date by knowing the previous balance factors and the change in height – it is not necessary to know the absolute height.
 
@@ -90,4 +92,10 @@ aka log(n). The rotation operations take constant time.
 - `void preOrderTraversal()`
 - `void inOrderTraversal()`
 - `void postOrderTraversal()`
+## Comparison with Red Black Tree
 
+The AVL tree and other self balancing search trees like Red Black are useful to get all basic operations done in O(Log n) time. 
+The AVL trees are more balanced compared to Red Black Trees, but they may cause more rotations during insertion and deletion. 
+So if your application involves many frequent insertions and deletions, then Red Black trees should be preferred. 
+And if the insertions and deletions are less frequent and search is more frequent operation, 
+then AVL tree should be preferred over Red Black Tree.
