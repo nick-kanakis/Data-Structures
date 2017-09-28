@@ -67,6 +67,10 @@ public class AVLTree<V>{
     }
 
 //todo: study it
+    // This recursive algorithm returns root of each level.
+    // The returned root is the marked as its child by the recursive caller.
+    // If it found a leaf that is null then it returns the new added node
+    // If the node is already present it returns the node itself
     private Node insertRecursively(Node currentRoot, Node newNode) {
 
         /* 1.  Perform the normal BST insertion */
