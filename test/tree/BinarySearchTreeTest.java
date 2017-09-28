@@ -1,3 +1,5 @@
+package tree;
+
 import gr.personal.datastructures.trees.BinarySearchTree;
 import org.junit.After;
 import org.junit.Before;
