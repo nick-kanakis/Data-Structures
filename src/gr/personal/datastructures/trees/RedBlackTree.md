@@ -36,20 +36,20 @@ aka log(n). The rotation operations take constant time.
 
 **Insert Algorithm**
 
-Let `x` be the newly inserted node.
+Let `x` be the newly inserted node, new Nodes are always red.
 
 1. Perform standard BST insertion and make the color of newly inserted nodes as RED.
 2. If `x` is root, change color of `x` as BLACK (Black height of complete tree increases by 1).
-3. Do following if color of `x`’s parent is RED or x is not root.
+3. Do following if color of `x`’s parent is not BLACK or `x` is not root.
     1. If `x`’s uncle is RED
         1. Change color of parent and uncle as BLACK
         2. Color of grand parent as RED.
-        3.Change `x` = `x`’s grandparent, repeat steps 2 and 3 for new `x`.
-    2. If `x`’s uncle is BLACK, then there can be four configurations for `x`, `x`’s parent (**p**) and x’s grandparent (**g**)
-        1. Left Left Case (**p** is left child of **g** and **x** is left child of **p**)
-        2. Left Right Case (**p** is left child of **g** and **x** is right child of **p**)
-        3. Right Right Case 
-        4. Right Left Case 
+        3. Change `x` = `x`’s grandparent, repeat steps 2 and 3 for new `x`.
+    2. If `x`’s uncle is BLACK (Or does not exist), then there can be four configurations for `x`, `x`’s parent (**p**) and x’s grandparent (**g**)
+        1. Left Left Case (**p** is left child of **g** and `x` is left child of **p**)
+        2. Left Right Case (**p** is left child of **g** and `x` is right child of **p**)
+        3. Right Right Case (**p** is right child of **g** and `x` is right child of **p**)
+        4. Right Left Case (**p** is right child of **g** and `x` is left child of **p**)
 
 ## Real Life Use
 
@@ -63,13 +63,3 @@ The AVL tree is another structure supporting O(log n) search, insertion, and rem
 It is more rigidly balanced than red–black trees, leading to slower insertion and removal but faster retrieval. 
 This makes it attractive for data structures that may be built once and loaded without reconstruction, 
 such as language dictionaries (or program dictionaries, such as the opcodes of an assembler or interpreter).
-
-## Advantages
-
-1.
-
-
-
-## Disadvantages
-
-1.
