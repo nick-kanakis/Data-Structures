@@ -92,6 +92,7 @@ aka log(n). The rotation operations take constant time.
 - `void preOrderTraversal()`
 - `void inOrderTraversal()`
 - `void postOrderTraversal()`
+
 ## Comparison with Red Black Tree
 
 The AVL tree and other self balancing search trees like Red Black are useful to get all basic operations done in O(Log n) time. 
