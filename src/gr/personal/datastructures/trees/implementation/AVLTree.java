@@ -1,4 +1,4 @@
-package gr.personal.datastructures.trees;
+package gr.personal.datastructures.trees.implementation;
 
 /**
  * Created by nkanakis on 9/28/2017.

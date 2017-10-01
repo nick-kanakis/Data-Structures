@@ -1,6 +1,6 @@
 package heap;
 
-import gr.personal.datastructures.heap.Heap;
+import gr.personal.datastructures.heap.implementation.Heap;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;

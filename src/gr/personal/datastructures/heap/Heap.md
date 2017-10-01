@@ -39,7 +39,7 @@ Insert/delete in the worst case take O(logn) since you will need to fix the heap
 Insert/Delete can be O(1) if the value added is less/greater than the parent depending if we have Max/Min heap.
 (Parent >< Child) for the whole branch to the top.
 
-## Space Complexity (Doubly, Circular, Singly)
+## Space Complexity
 `O(n)`
 
 ## Operations

@@ -27,7 +27,7 @@ Binary Search Tree, is a node-based binary tree data structure which has the fol
 
 The worst O times are only with the tree has one branch (aka linked-list)
 
-## Space Complexity (Doubly, Circular, Singly)
+## Space Complexity
 `O(n)`
 
 ## Operations

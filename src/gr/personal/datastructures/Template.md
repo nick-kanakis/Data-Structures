@@ -11,7 +11,7 @@
 |:-------:|:-------:|:-------:|:-------:|
 | O() | O() | O() | O() |
 
-## Space Complexity (Doubly, Circular, Singly)
+## Space Complexity
 `O()`
 
 ## Operations

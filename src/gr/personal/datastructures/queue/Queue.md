@@ -12,7 +12,7 @@ Theoretically, a queue does not have a specific capacity.
 Regardless of how many elements are already contained, a new element can always be added,
 However there is a special type of queue, **Bounded queues**, that are limited to a fix number of items
 
-## Time Complexity (Doubly, Circular, Singly)
+## Time Complexity
 | Access | Search | Insert | Delete |
 |:-------:|:-------:|:-------:|:-------:|
 | O(n) | O(n) | O(1) | O(1) |

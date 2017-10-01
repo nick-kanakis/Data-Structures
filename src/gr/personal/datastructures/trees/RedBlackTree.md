@@ -23,7 +23,7 @@ aka log(n). The rotation operations take constant time.
 |:-------:|:-------:|:-------:|:-------:|
 | O(logn) | O(logn) | O(logn) | O(logn) |
 
-## Space Complexity (Doubly, Circular, Singly)
+## Space Complexity
 `O(n)`
 
 ## Operations

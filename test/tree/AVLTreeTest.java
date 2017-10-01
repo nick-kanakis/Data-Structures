@@ -1,6 +1,6 @@
 package tree;
 
-import gr.personal.datastructures.trees.AVLTree;
+import gr.personal.datastructures.trees.implementation.AVLTree;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
