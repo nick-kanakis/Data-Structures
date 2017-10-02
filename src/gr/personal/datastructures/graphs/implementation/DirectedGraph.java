@@ -13,12 +13,12 @@ public class DirectedGraph<V> {
     class Node{
         private V value;
         private int key;
-        List<Integer> children;
+        List<Integer> neighbors;
 
         public Node(int key, V value) {
             this.value = value;
             this.key = key;
-            children = new ArrayList<>();
+            neighbors = new ArrayList<>();
         }
     }
 
@@ -36,8 +36,8 @@ public class DirectedGraph<V> {
 
     private void deleteAllReferencesOfNode(Integer key){
         for (Node node : vertices.values() ) {
-            if(node.children.contains(key))
-                node.children.remove(key);
+            if(node.neighbors.contains(key))
+                node.neighbors.remove(key);
         }
     }
 
@@ -46,7 +46,7 @@ public class DirectedGraph<V> {
 
         if(sourceNode == null || !nodeExists(destinationKey))
             return;
-        sourceNode.children.add(destinationKey);
+        sourceNode.neighbors.add(destinationKey);
     }
 
     public void removeEdge(Integer sourceKey, Integer destinationKey){
@@ -54,7 +54,7 @@ public class DirectedGraph<V> {
 
         if(sourceNode == null || !nodeExists(destinationKey))
             return;
-        sourceNode.children.remove(destinationKey);
+        sourceNode.neighbors.remove(destinationKey);
     }
 
     public List<V> retrieveNeighbors(int key){
@@ -64,7 +64,7 @@ public class DirectedGraph<V> {
         Node node = vertices.get(key);
         List<V> neighbors = new ArrayList<>();
 
-        for (int childrenKey : node.children) {
+        for (int childrenKey : node.neighbors) {
             neighbors.add(vertices.get(childrenKey).value);
         }
         return neighbors;
