@@ -77,30 +77,21 @@ public class Trie {
    *  Delete Algorithm
    *
    * Boolean delete( currentNode, chars, index of chars)
-   *    If (index == size of word) {
-   *        if currentNode is not end of the world
-   *            return false
-   *        else
-   *            mark node as not final
-   *            if current node has no children
-   *                return true
-   *            else
-   *                retrun false
-   *    }
-   *    get currentNode's child based on chars index
-   *    if (node == null)
-   *        return false
-   *    shouldDeleteCurrentNode  = recursively call delete(childNode, chars, index++)
    *
-   *    if( shouldDeleteCurrentNode is true) {
-   *        remove child from hashmap
-   *        if no mappings are left in the map
-   *            return true
-   *        else
-   *            return false
-   *    }
-   *    return false
+   * #When the end is reached#:
+   *  If it has reach the end of the chars
+   *    then check if it is a final world if not return false
+   *    else
+   *    mark it as not final world since we want to delete it
+   *    Also if it has no children return true so it can be removed by the caller
    *
+   * #Recursive part#:
+   * If the char is not null recursively call the delete method again for the next node & next char
+   *
+   * #remove of node#:
+   * If the result is true that means that you need to remove the node.
+   *    remove the node from the children list
+   *    check if the current node has no children, so it can be deleted by the recursive caller.
    * */
     private boolean deleteRecursively(Node currentNode, char[] charArrayWord, int indexInCharArray) {
         if (indexInCharArray == charArrayWord.length) {
