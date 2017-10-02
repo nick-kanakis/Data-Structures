@@ -19,7 +19,7 @@ such as a symbolic label or a numeric attribute (cost, capacity, length, etc.).
 
 If `V` the number of vertices and `E` the number of edges
 
-| Add Vertex | Add edge | Remove vertex | Remove edge |
+| Add Node | Add edge | Remove node | Remove edge |
 |:-------:|:-------:|:-------:|:-------:|
 | O(1) | O(1) | O(E) | O(V) |
 
@@ -28,20 +28,20 @@ If `V` the number of vertices and `E` the number of edges
 
 ## Operations
 
-- `void addVertex(Key, Value)`
-- `void removeVertex(Key)`
-- `void addEdge(VertexKey1, VertexKey2)`
-- `void removeEdge(VertexKey1, VertexKey2)`
+- `void addNode(Key, Value)`
+- `void removeNode(Key)`
+- `void addEdge(NodeKey1, NodeKey2)`
+- `void removeEdge(NodeKey1, NodeKey2)`
 - `List<Key> neighbors(Key)` 
-- `Value getVertexValue(Key)` 
-- `void updateVertexValue(Key, Value)` 
+- `Value getNodeValue(Key)` 
+- `void updateNodeValue(Key, Value)` 
 
 If it is a weighted graph :
 Replace addEdge with:
 
-- `void addEdge(VertexKey1, VertexKey2, Weight)`
+- `void addEdge(NodeKey1, NodeKey2, Weight)`
 
 Add:
 
-- `Weight getEdgeWeight(VertexKey1, VertexKey2)` 
-- `void updateEdgeWeight(VertexKey1, VertexKey2, Weight)` 
+- `Weight getEdgeWeight(NodeKey1, NodeKey2)` 
+- `void updateEdgeWeight(NodeKey1, NodeKey2, Weight)` 
