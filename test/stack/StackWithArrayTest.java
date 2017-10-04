@@ -25,6 +25,8 @@ public class StackWithArrayTest  {
         assertEquals(3, (int) stack.peek());
         stack.push(4);
         assertEquals(4, (int) stack.peek());
+        stack.push(5);
+        assertEquals(5, (int) stack.peek());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)

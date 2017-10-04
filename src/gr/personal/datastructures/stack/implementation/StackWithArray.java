@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 public class StackWithArray <Item> implements Stack <Item> {
 
     private Item[] array;
-    private int head = 0;
+    private int head = -1;
 
     public StackWithArray(int size) {
         this.array = (Item[]) new Object[size];
@@ -25,7 +25,7 @@ public class StackWithArray <Item> implements Stack <Item> {
 
     @Override
     public Item pop() {
-        if(head == 0)
+        if(head == -1)
             throw new NoSuchElementException();
         Item poppedItem = array[head];
         array[head] = null;
@@ -35,7 +35,7 @@ public class StackWithArray <Item> implements Stack <Item> {
 
     @Override
     public Item peek() {
-        if(head == 0)
+        if(head == -1)
             throw new NoSuchElementException();
         return array[head];
     }
