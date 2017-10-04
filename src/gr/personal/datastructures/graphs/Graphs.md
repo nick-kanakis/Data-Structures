@@ -1,9 +1,9 @@
-# Graphs Theory
+# graphs Theory
 
 
 ## Basic concepts
 
-![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Directed.svg/250px-Directed.svg.png "Graphs")
+![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Directed.svg/250px-Directed.svg.png "graphs")
 
 A graph data structure consists of a finite (and possibly mutable) set of vertices or nodes or points,
 together with a set of unordered pairs of these vertices for an undirected graph or a set of ordered pairs for a directed graph.

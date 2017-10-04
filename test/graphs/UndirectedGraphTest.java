@@ -1,23 +1,21 @@
-package Graphs;
+package graphs;
 
-import gr.personal.datastructures.graphs.implementation.DirectedGraph;
+import gr.personal.datastructures.graphs.implementation.UndirectedGraph;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by nkanakis on 10/2/2017.
  */
-public class DirectedGraphTest {
+public class UndirectedGraphTest {
 
     @Test
     public void testInsert() throws Exception {
-        DirectedGraph<String> graph = new DirectedGraph<>();
+        UndirectedGraph<String> graph = new UndirectedGraph<>();
         List<String> neighbors = new ArrayList<>();
 
         graph.addNode(1, "1");
@@ -51,33 +49,33 @@ public class DirectedGraphTest {
         graph.addEdge(8,2);
 
         neighbors = graph.retrieveNeighbors(1);
-        assertArrayEquals(new String[]{"2","3"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"2","3","8"}, neighbors.toArray(new String[neighbors.size()]));
 
         neighbors = graph.retrieveNeighbors(2);
-        assertArrayEquals(new String[]{"3"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"1","3","8"}, neighbors.toArray(new String[neighbors.size()]));
 
         neighbors = graph.retrieveNeighbors(3);
-        assertArrayEquals(new String[]{"4","5"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"1","2","4","5"}, neighbors.toArray(new String[neighbors.size()]));
 
         neighbors = graph.retrieveNeighbors(4);
-        assertArrayEquals(new String[]{"6"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"3","6"}, neighbors.toArray(new String[neighbors.size()]));
 
         neighbors = graph.retrieveNeighbors(5);
-        assertArrayEquals(new String[]{"6"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"3","6"}, neighbors.toArray(new String[neighbors.size()]));
 
         neighbors = graph.retrieveNeighbors(6);
-        assertArrayEquals(new String[]{"7"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"4","5","7"}, neighbors.toArray(new String[neighbors.size()]));
 
         neighbors = graph.retrieveNeighbors(7);
-        assertArrayEquals(new String[]{"8"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"6","8"}, neighbors.toArray(new String[neighbors.size()]));
 
         neighbors = graph.retrieveNeighbors(8);
-        assertArrayEquals(new String[]{"1","2"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"7","1","2"}, neighbors.toArray(new String[neighbors.size()]));
     }
 
     @Test
     public void testDelete() throws Exception {
-        DirectedGraph<String> graph = new DirectedGraph<>();
+        UndirectedGraph<String> graph = new UndirectedGraph<>();
         List<String> neighbors = new ArrayList<>();
 
         graph.addNode(1, "1");
@@ -104,17 +102,23 @@ public class DirectedGraphTest {
 
         graph.removeEdge(8,2);
         neighbors = graph.retrieveNeighbors(8);
-        assertArrayEquals(new String[]{"1"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"7","1"}, neighbors.toArray(new String[neighbors.size()]));
+        neighbors = graph.retrieveNeighbors(2);
+        assertArrayEquals(new String[]{"1","3"}, neighbors.toArray(new String[neighbors.size()]));
 
         graph.removeEdge(1,3);
         neighbors = graph.retrieveNeighbors(1);
-        assertArrayEquals(new String[]{"2"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"2","8"}, neighbors.toArray(new String[neighbors.size()]));
+        neighbors = graph.retrieveNeighbors(3);
+        assertArrayEquals(new String[]{"2", "4", "5"}, neighbors.toArray(new String[neighbors.size()]));
 
         graph.removeNode(5);
         assertFalse(graph.nodeExists(5));
 
         neighbors = graph.retrieveNeighbors(3);
-        assertArrayEquals(new String[]{"4"}, neighbors.toArray(new String[neighbors.size()]));
+        assertArrayEquals(new String[]{"2", "4"}, neighbors.toArray(new String[neighbors.size()]));
+        neighbors = graph.retrieveNeighbors(6);
+        assertArrayEquals(new String[]{ "4","7"}, neighbors.toArray(new String[neighbors.size()]));
 
     }
 }
