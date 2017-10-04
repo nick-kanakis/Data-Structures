@@ -28,7 +28,6 @@ public class StackWithArray <Item> implements Stack <Item> {
         if(head == -1)
             throw new NoSuchElementException();
         Item poppedItem = array[head];
-        array[head] = null;
         head --;
         return poppedItem;
     }
