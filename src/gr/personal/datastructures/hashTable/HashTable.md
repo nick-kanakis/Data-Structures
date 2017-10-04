@@ -77,6 +77,19 @@ One more advantage of Linear probing is easy to compute.
 *Double hashing* has poor cache performance but no clustering. Double hashing requires more computation time as two hash functions need to be computed.
 
 ### Hash Function
+**Division method**
+
+`h(k)=k mod(m)` 
+
+- m must be prime number, If m = 2^p, then the h(k) only looks at the p lower bits of k, completely ignoring the rest of the bits in k.
+
+
+**Multiplication method**
+
+`h(k)=floor(m(k A mod(1))` 
+
+- Where 0 < A < 1.
+- The advantage of the multiplication method is it works equally well with any size m.
 
 ## Time Complexity
 
