@@ -8,9 +8,9 @@ import java.lang.reflect.Array;
  * Created by Nicolas on 24/9/2017.
  *
  * We have a fixed array of a default size. Each cell of the array is a pointer to
- * the head of a lininted list.
+ * the head of a linked list.
  *
- * NOTE: inteys MUST be unique!
+ * NOTE: integers MUST be unique!
  */
 public class HashTableChaining<V> implements HashTable<V> {
 
@@ -51,16 +51,25 @@ public class HashTableChaining<V> implements HashTable<V> {
     public void insert(int key, V value) {
         int hashedKey = hash(key);
 
+        Node newNode = new Node(key, value);
+
         if(bucket[hashedKey] == null) {
-            bucket[hashedKey] = new Node(key, value);
+            bucket[hashedKey] = newNode;
             return;
         }
-        Node finalNode = bucket[hashedKey];
+        Node currentRoot = bucket[hashedKey];
 
-        while(finalNode.next != null){
-            finalNode = finalNode.next;
+        bucket[hashedKey] = newNode;
+        newNode.next = currentRoot;
+
+        /*
+        There is no need to insert insert it in the end of the list
+        Insert in in the front so the time will be: O(1)
+
+        while(currentRoot.next != null){
+            currentRoot = currentRoot.next;
         }
-        finalNode.next = new Node(key, value);
+        currentRoot.next = new Node(key, value);*/
     }
 
     @Override
@@ -71,14 +80,14 @@ public class HashTableChaining<V> implements HashTable<V> {
             return;
 
         if(bucket[hashedKey].entry.key == key){
-            bucket[hashedKey] = null;
+            bucket[hashedKey] = bucket[hashedKey].next;
             return;
         }
 
         Node previousNode = bucket[hashedKey];
         Node toBeDeleted = bucket[hashedKey].next;
 
-        while(toBeDeleted.next != null){
+        while(toBeDeleted != null){
             if(toBeDeleted.entry.key == key){
                 previousNode.next = toBeDeleted.next;
                 return;
@@ -95,9 +104,6 @@ public class HashTableChaining<V> implements HashTable<V> {
 
         if(bucket[hashedKey] == null)
             return null;
-
-        if(bucket[hashedKey].entry.key == key)
-            return currentNode.entry.value;
 
         while(currentNode != null){
             if(currentNode.entry.key == key)
