@@ -60,6 +60,41 @@ public class Heap {
 
             currentPointer = maxChildPointer;
         }
+        /*
+        Another solution would be the following:
+
+        int currentPointer = 0;
+        int maxChildPointer = findMaxChildOfIndex(0);
+
+        while(maxChildPointer != -1){
+            if(array[maxChildPointer]<= array[currentPointer] )
+                return;
+
+            swapCells(currentPointer, maxChildPointer);
+            currentPointer = maxChildPointer;
+            maxChildPointer = findMaxChildOfIndex(maxChildPointer);
+        }
+        */
+    }
+
+    private int findMaxChildOfIndex(int index){
+        int leftChildPointer = index*2+1;
+        int rightChildPointer = index*2+2;
+
+        if(leftChildPointer > array.length-1 && rightChildPointer > array.length-1 )
+            return -1;
+
+        if(leftChildPointer > array.length-1  )
+            return rightChildPointer;
+
+        if(rightChildPointer > array.length-1  )
+            return leftChildPointer;
+
+        if( array[rightChildPointer]> array[leftChildPointer])
+            return rightChildPointer;
+
+        return leftChildPointer;
+
     }
 
     private void heapifyUp() {
