@@ -46,19 +46,12 @@ public class Trie {
 
         char[] characters = newWord.toCharArray();
         Node currentNode = root;
-        Node tmpNode = null;
 
         for (int i = 0; i < characters.length; i++) {
-
-            if(currentNode.children.containsKey(characters[i]))
-                currentNode = currentNode.children.get(characters[i]);
-            else{
-                tmpNode =  new Node();
-                currentNode.children.put(characters[i],tmpNode);
-                currentNode = tmpNode;
-            }
+            if(!currentNode.children.containsKey(characters[i]))
+                currentNode.children.put(characters[i],new Node());
+            currentNode = currentNode.children.get(characters[i]);
         }
-
         currentNode.isEndWord = true;
     }
 
