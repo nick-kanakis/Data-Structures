@@ -14,15 +14,12 @@ public class Heap {
     private int lastOccupiedPointer = -1;
 
     public void insert(int value){
-        if(lastOccupiedPointer <0){
-            array[++lastOccupiedPointer] = value;
-            return;
-        }
         if( lastOccupiedPointer >= array.length -1  )
             increaseArray();
 
-        array[++lastOccupiedPointer] = value;
-        heapifyUp(lastOccupiedPointer);
+        lastOccupiedPointer++;
+        array[lastOccupiedPointer] = value;
+        heapifyUp();
     }
 
     public int extractMax(){
@@ -33,7 +30,7 @@ public class Heap {
         swapCells(0, lastOccupiedPointer);
         array[lastOccupiedPointer] = 0;
         lastOccupiedPointer--;
-        heapifyDown(0);
+        heapifyDown();
         return extractedValue;
     }
 
@@ -41,12 +38,13 @@ public class Heap {
         return array;
     }
 
-    private void heapifyDown(int currentPointer) {
+    private void heapifyDown() {
+        int currentPointer= 0;
         while(currentPointer <= lastOccupiedPointer){
             int rightChildPointer = calculateRightChildPointer(currentPointer);
             int leftChildPointer = calculateLeftChildPointer(currentPointer);
 
-            if(rightChildPointer > array.length -1 ||leftChildPointer > array.length -1)
+            if(rightChildPointer > array.length -1 || leftChildPointer > array.length -1)
                 break;
 
             int maxChildPointer;
@@ -64,14 +62,16 @@ public class Heap {
         }
     }
 
-    private void heapifyUp(int currentPointer) {
-        while(currentPointer > 0){
-            int parentPointer = calculateParentPointer(currentPointer);
-            if(array[parentPointer] < array[currentPointer])
-                swapCells(parentPointer, currentPointer);
-            else
-                break;
+    private void heapifyUp() {
+        int parentPointer = calculateParentPointer(lastOccupiedPointer);
+        int currentPointer = lastOccupiedPointer;
+
+        while(parentPointer >= 0){
+            if(array[parentPointer] >= array[currentPointer])
+               return;
+            swapCells(parentPointer,currentPointer);
             currentPointer = parentPointer;
+            parentPointer = calculateParentPointer(currentPointer);
         }
     }
 

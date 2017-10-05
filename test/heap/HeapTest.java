@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class HeapTest {
 
     @Test
-    public void testHeap(){
+    public void testInsertHeap(){
 
         Heap heap = new Heap();
 

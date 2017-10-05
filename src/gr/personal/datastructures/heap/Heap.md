@@ -21,14 +21,17 @@ If the tree root is at index 0, with valid indices 0 through n − 1, then each 
 
 ## Time Complexity
 
-For Binary Heap
+For Binary Heap:
+
 **Worst**
+
 | Search | Insert | Delete |
 |:-------:|:-------:|:-------:|
 | O(n) | O(logn) | O(logn) |
 
 
 **Average**
+
 | Search | Insert | Delete |
 |:-------:|:-------:|:-------:|
 | O(n) | O(1) | O(1) |
