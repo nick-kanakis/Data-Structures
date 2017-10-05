@@ -1,4 +1,4 @@
-# graphs Theory
+# Graphs Theory
 
 
 ## Basic concepts
