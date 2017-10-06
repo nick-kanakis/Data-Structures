@@ -49,12 +49,12 @@ of the deleted node.
 left leaf. Replace the node you want to delete with the leaf and delete the node
 easily now that it is a leaf node.
 
-- When the nide has 2 children but the right sub-tree has no left nodes replace
-the first child of the node you want to delete with soon to be delete node.
+- When the node has 2 children but the right sub-tree has no left nodes replace
+the first right child of the node you want to delete with the soon to be delete node.
 Delete that node. This is easy as the node has only one children.
 
 ## Real Life Use
 
-- Implementation of sorting algorithms
-- User in many search application ()
+- Implementation of sorting algorithms.
+- User in many search application.
 

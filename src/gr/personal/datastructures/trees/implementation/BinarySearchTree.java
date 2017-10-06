@@ -114,11 +114,11 @@ public class BinarySearchTree<V> {
         return null;
     }
 
-    private void removeNode(Node parentOfToBeDeletedNode, Node toBeDeletedNode, boolean isLeftChild) {
+    private void removeNode(Node parentOfToBeDeletedNode, Node toBeDeletedNode, boolean currentNodeIsLeftChild) {
 
         //Case 1: Delete Node is leaf
         if (toBeDeletedNode.rightChild == null && toBeDeletedNode.leftChild == null) {
-            if (isLeftChild)
+            if (currentNodeIsLeftChild)
                 parentOfToBeDeletedNode.leftChild = null;
             else
                 parentOfToBeDeletedNode.rightChild = null;
@@ -128,14 +128,14 @@ public class BinarySearchTree<V> {
         else if (toBeDeletedNode.rightChild == null || toBeDeletedNode.leftChild == null) {
             //Right child of deleted node is the only not null child
             if (toBeDeletedNode.rightChild != null) {
-                if (isLeftChild)
+                if (currentNodeIsLeftChild)
                     parentOfToBeDeletedNode.leftChild = toBeDeletedNode.rightChild;
                 else
                     parentOfToBeDeletedNode.rightChild = toBeDeletedNode.rightChild;
             }
             //Left child of deleted node is the only not null child
             else {
-                if (isLeftChild)
+                if (currentNodeIsLeftChild)
                     parentOfToBeDeletedNode.leftChild = toBeDeletedNode.leftChild;
                 else
                     parentOfToBeDeletedNode.rightChild = toBeDeletedNode.leftChild;
@@ -149,7 +149,7 @@ public class BinarySearchTree<V> {
             if (rootOfRightSubtree.leftChild == null) {
                 toBeDeletedNode.value = rootOfRightSubtree.value;
                 toBeDeletedNode.key = rootOfRightSubtree.key;
-                if (isLeftChild) {
+                if (currentNodeIsLeftChild) {
                     toBeDeletedNode.leftChild = rootOfRightSubtree.rightChild;
                 } else {
                     toBeDeletedNode.rightChild = rootOfRightSubtree.rightChild;
