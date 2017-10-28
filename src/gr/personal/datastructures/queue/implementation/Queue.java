@@ -57,6 +57,7 @@ public class Queue<Item> {
 
         Item toBeReturned = head.value;
 
+        // WARNING: If only one element in queue head==tail, both pointers must be null not only the head.
         if(tail == head){
             tail = null;
             head = null;

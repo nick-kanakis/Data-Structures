@@ -85,6 +85,7 @@ public class LinkedList<Item> {
         if(index==1){
             addedNode.nextNode = head;
             head = addedNode;
+            //DO NOT FORGET THE RETURN!
             return;
         }
 
@@ -103,6 +104,8 @@ public class LinkedList<Item> {
 
         Node currentNode = head;
         for (int i = 1; i < index ; i++) {
+            if(currentNode == null)
+                throw new IndexOutOfBoundsException();
             currentNode = currentNode.nextNode;
         }
         return currentNode.value;
@@ -114,10 +117,11 @@ public class LinkedList<Item> {
         if(index == 1)
             head = head.nextNode;
 
-
         Node previousNode = head;
         Node toBeDeletedNode = head;
         for (int i = 1; i < index ; i++) {
+            if(toBeDeletedNode == null)
+                throw new IndexOutOfBoundsException();
             previousNode = toBeDeletedNode;
             toBeDeletedNode = toBeDeletedNode.nextNode;
         }

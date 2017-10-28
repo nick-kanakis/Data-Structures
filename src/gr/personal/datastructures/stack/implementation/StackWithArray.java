@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 public class StackWithArray <Item> implements Stack <Item> {
 
     private Item[] array;
+    //Warning start with -1 and not 0
     private int head = -1;
 
     public StackWithArray(int size) {
@@ -25,6 +26,7 @@ public class StackWithArray <Item> implements Stack <Item> {
 
     @Override
     public Item pop() {
+        //Always check the value of the head pointer
         if(head == -1)
             throw new NoSuchElementException();
         Item poppedItem = array[head];
