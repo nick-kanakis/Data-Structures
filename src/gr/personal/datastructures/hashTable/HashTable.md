@@ -38,17 +38,19 @@ Each table entry contains either a record, NIL, or a deprecated recorded marked 
 When searching for an element, we one by one examine table slots until the desired element is found
 or it is clear that the element is not in the table
 
-*Insert(k)*: Keep probing until an empty slot is found.
+**Insert(k)**: Keep probing until slot is empty or marked as deleted.
 Once an empty slot is found, insert k.
 
-*Search(k)*: Keep probing until slot’s key doesn’t become equal to k or an empty slot is reached.
+**Search(k)**: Keep probing until slot’s key does not become equal to k or **an empty slot is reached**.
 
-*Delete(k)*: If we simply delete a key, then search may fail. So slots of deleted keys are marked specially as “deleted”.
-Insert can insert an item in a deleted slot, but search doesn’t stop at a deleted slot.
+**Delete(k)**: To find the node keep probing until slot’s key does not become equal to k or **an empty slot is reached**.
+DO NOT DELETE ANY ELEMENT, if we simply delete a key, then search may fail. Slots of deleted keys are marked specially as “deleted”.
+*Insert can insert an item in a deleted slot, but search doesn’t stop at a deleted slot*.
 
 **Probing Types**
 
-- *Linear Probing* : In linear probing, we linearly probe for next slot. (hash(x)+i) % S.
+- *Linear Probing* : In linear probing, we linearly probe for next slot. (hash(x)+i) % S, where S is the size of the table and hash(x) the hashing
+function that returns the slot index.
 The main problem with linear probing is clustering, many consecutive elements form groups and it starts taking time to find a free slot or to search an element.
 
 - *Quadratic Probing* :  We look for i2‘th slot in i’th iteration (hash(x)+i\*i) .

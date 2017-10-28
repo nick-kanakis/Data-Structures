@@ -40,13 +40,13 @@ public class HashTableOpenAddressing<V> implements HashTable <V> {
     @Override
     public void insert(int key, V value) {
         int hashedKey = hash(key);
-        bucket[FindEmptySlotLinearProbing(hashedKey)] = new Entry(key, value);
+        bucket[findEmptySlotLinearProbing(hashedKey)] = new Entry(key, value);
     }
 
     @Override
     public void delete(int key) {
         int hashedKey = hash(key);
-        int slot = FindValueLinearProbing(hashedKey, key);
+        int slot = findValueLinearProbing(hashedKey, key);
         if (slot == -1)
             return ;
         bucket[slot].deletedFlag = true;
@@ -55,7 +55,7 @@ public class HashTableOpenAddressing<V> implements HashTable <V> {
     @Override
     public V retrieve(int key) {
         int hashedKey = hash(key);
-        int slot = FindValueLinearProbing(hashedKey, key);
+        int slot = findValueLinearProbing(hashedKey, key);
         if (slot == -1)
             return null;
         return (V) bucket[slot].value;
@@ -75,7 +75,7 @@ public class HashTableOpenAddressing<V> implements HashTable <V> {
         return key % bucket.length;
     }
 
-    private int FindEmptySlotLinearProbing(int startingPoint){
+    private int findEmptySlotLinearProbing(int startingPoint){
         for (int i = startingPoint; i < bucket.length + startingPoint; i++) {
             int probedPosition = i % bucket.length;
             if(bucket[probedPosition] == null || bucket[probedPosition].deletedFlag)
@@ -84,7 +84,7 @@ public class HashTableOpenAddressing<V> implements HashTable <V> {
         throw new IndexOutOfBoundsException();
     }
 
-    private int FindValueLinearProbing(int startingPoint, int key){
+    private int findValueLinearProbing(int startingPoint, int key){
         for (int i = startingPoint; i < bucket.length + startingPoint; i++) {
             int probedPosition = i % bucket.length;
 
@@ -94,6 +94,7 @@ public class HashTableOpenAddressing<V> implements HashTable <V> {
             if(bucket[probedPosition].key == key)
                 return probedPosition;
         }
+        //todo: In delete you don't need to throw exception.
         throw new IndexOutOfBoundsException();
     }
 }
