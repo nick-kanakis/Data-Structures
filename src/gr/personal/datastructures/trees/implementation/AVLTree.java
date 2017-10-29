@@ -66,8 +66,8 @@ public class AVLTree<V>{
         root = insertRecursively(root,newNode);
     }
 
-    // This recursive algorithm returns root of each level.
-    // The returned root is the marked as its child by the recursive caller.
+    // This recursive algorithm returns the root of each level.
+    // The returned root is  marked as child by the recursive caller.
     // If it found a leaf that is null then it returns the new added node
     // If the node is already present it returns the node itself
     // Also in every step if nothing change it returns the current root unchanged.
@@ -94,24 +94,24 @@ public class AVLTree<V>{
               unbalanced */
         int balanceFactor = getBalanceFactor(currentRoot);
 
-        //If left unbalanced (balancing factor > 1) && the new node has been inserted on the left
+        //If left unbalanced, left subtree greater than right, (balancing factor > 1) && the new node has been inserted on the left
         //Do a LEFT LEFT rotation
         if(balanceFactor > 1 && newNode.key < currentRoot.leftChild.key)
             return rotateRight(currentRoot);
 
-        //If right unbalanced (balancing factor < -1) && the new node has been inserted on the right
+        //If right unbalanced, right subtree greater than left, (balancing factor < -1) && the new node has been inserted on the right
         //Do a RIGHT RIGHT rotation
         if(balanceFactor < -1 && newNode.key > currentRoot.rightChild.key)
             return rotateLeft(currentRoot);
 
-        //If left unbalanced (balancing factor > 1) && the new node has been inserted on the right
+        //If left unbalanced, left subtree greater than right, (balancing factor > 1) && the new node has been inserted on the right
         //Do a LEFT RIGHT rotation
         if(balanceFactor > 1 && newNode.key > currentRoot.leftChild.key){
             currentRoot.leftChild = rotateLeft(currentRoot.leftChild);
             return rotateRight(currentRoot);
         }
 
-        //If right unbalanced (balancing factor <-1) && the new node has been inserted on the left
+        //If right unbalanced, right subtree greater than left, (balancing factor <-1) && the new node has been inserted on the left
         //Do a RIGHT LEFT rotation
         if(balanceFactor < -1 && newNode.key < currentRoot.rightChild.key){
             currentRoot.rightChild = rotateRight(currentRoot.rightChild);

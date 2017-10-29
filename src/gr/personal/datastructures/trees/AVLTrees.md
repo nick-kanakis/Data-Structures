@@ -3,14 +3,14 @@
 
 ## Basic concepts
 
-![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/AVL-tree-wBalance_K.svg/320px-AVL-tree-wBalance_K.svg.png "AVL trees")
+![alt text](http://btechsmartclass.com/DS/images/AVL%20Example.png "AVL trees")
 
 AVL tree is a subtype of Binary Search trees that are also height-self-balanced.
 In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one.
 
 Each node has a BalanceFactor:
 
-`BalanceFactor(N) := Height(RightSubtree(N)) - Height(LeftSubtree(N))`
+`BalanceFactor(N) := Height(LeftSubtree(N)) - Height(RightSubtree(N))`
 
 Where
 `BalanceFactor(N) ∈ {–1,0,+1}`
