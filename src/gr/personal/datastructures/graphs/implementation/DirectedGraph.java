@@ -25,6 +25,8 @@ public class DirectedGraph<V> {
     private Map<Integer, Node> vertices = new HashMap<>();
 
     public void addNode(int key, V value){
+        if(vertices.containsKey(key))
+            return;
         Node newNode = new Node(key,value);
         vertices.put(key, newNode);
     }
