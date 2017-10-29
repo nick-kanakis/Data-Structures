@@ -80,7 +80,7 @@ public class BinarySearchTree<V> {
         if (root.key == key)
             parentOfToBeDeletedNode = root;
         else
-            parentOfToBeDeletedNode = findParentOfToBeDeletedNode(root, key);
+            parentOfToBeDeletedNode = findParentOfToBeDeletedNodeRecursively(root, key);
 
         //if parentNode is still null that means that there is no node with given key
         if (parentOfToBeDeletedNode == null)
@@ -99,19 +99,39 @@ public class BinarySearchTree<V> {
     /*
     * Find the parent of the node to be deleted by probing the left/right children of each node recursively.
     * */
-    private Node findParentOfToBeDeletedNode(Node currentRoot, int key) {
+    private Node findParentOfToBeDeletedNodeRecursively(Node currentRoot, int key) {
         if (key < currentRoot.key && currentRoot.leftChild != null) {
             if (currentRoot.leftChild.key != key)
-                return findParentOfToBeDeletedNode(currentRoot.leftChild, key);
+                return findParentOfToBeDeletedNodeRecursively(currentRoot.leftChild, key);
             else
                 return currentRoot;
         } else if (key > currentRoot.key && currentRoot.rightChild != null) {
             if (currentRoot.rightChild.key != key)
-                return findParentOfToBeDeletedNode(currentRoot.rightChild, key);
+                return findParentOfToBeDeletedNodeRecursively(currentRoot.rightChild, key);
             else
                 return currentRoot;
         }
         return null;
+    }
+
+    private Node findParentOfToBeDeletedNodeWithLoop(Node currentRoot, int key) {
+        Node parentOfToBeDeletedNode = null;
+        while (currentRoot!=null){
+            if (key < currentRoot.key){
+                parentOfToBeDeletedNode = currentRoot;
+                currentRoot = currentRoot.leftChild;
+            }
+            else if (key > currentRoot.key){
+                parentOfToBeDeletedNode = currentRoot;
+                currentRoot = currentRoot.rightChild;
+            } else {break;}
+        }
+
+        if (currentRoot == null)
+            throw new RuntimeException("Key does not exists");
+
+        return parentOfToBeDeletedNode;
+
     }
 
     private void removeNode(Node parentOfToBeDeletedNode, Node toBeDeletedNode, boolean currentNodeIsLeftChild) {
@@ -149,11 +169,8 @@ public class BinarySearchTree<V> {
             if (rootOfRightSubtree.leftChild == null) {
                 toBeDeletedNode.value = rootOfRightSubtree.value;
                 toBeDeletedNode.key = rootOfRightSubtree.key;
-                if (currentNodeIsLeftChild) {
-                    toBeDeletedNode.leftChild = rootOfRightSubtree.rightChild;
-                } else {
-                    toBeDeletedNode.rightChild = rootOfRightSubtree.rightChild;
-                }
+                toBeDeletedNode.rightChild = rootOfRightSubtree.rightChild;
+
             }
             //Case 3.b: There is a left most element in RIGHT subtree of the deleted node.
             else {
