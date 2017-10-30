@@ -6,8 +6,8 @@ import java.util.HashMap;
  * Created by Nicolas on 1/10/2017.
  *
  * Each node will have a hashMap and a boolean variable.
- * The hashMap will Store the a character as a key and a reference to that child node.
- * We do not use arrays because this will result in a lot of waste space, also w will not use linkedLists because
+ * The hashMap will store a character as a key and a reference to that child node.
+ * We do not use arrays because this will result in a lot of waste space, also we will not use linkedLists because
  * we want to have that association between the character and the next node.
  *
  */
@@ -88,7 +88,7 @@ public class Trie {
    * */
     private boolean deleteRecursively(Node currentNode, char[] charArrayWord, int indexInCharArray) {
         if (indexInCharArray == charArrayWord.length) {
-            //when end of word is reached only delete if currrent.endOfWord is true.
+            //when end of word is reached only delete if current.endOfWord is true.
             if (!currentNode.isEndWord) {
                 return false;
             }
