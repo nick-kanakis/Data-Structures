@@ -9,7 +9,7 @@ It’s a complete tree. All levels are completely filled except possibly the las
 This property of Binary Heap makes them suitable to be stored in an array.
 A Binary Heap is either **Min Heap** or **Max Heap**.
 In a Min Binary Heap, the key at root must be minimum among all keys present in heap. The same property must be recursively true for all nodes in Binary Tree.
-Max Binary Heap is similar to Min Heap, but the root myst be the maximum among all keys present in the heap .
+Max Binary Heap is similar to Min Heap, but the root must be the maximum among all keys present in the heap .
 
 Binary heaps are good candidates to be stored in an array because the are complete binary trees and can be stored compactly.
 Let n be the number of elements in the heap and i be an arbitrary valid index of the array storing the heap.

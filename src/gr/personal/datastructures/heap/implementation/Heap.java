@@ -102,6 +102,8 @@ public class Heap {
         int currentPointer = lastOccupiedPointer;
 
         while(parentPointer >= 0){
+            //Warning do not forget to stop if the child is in the correct position
+            //There is no need to iterate the rest of the array in that case
             if(array[parentPointer] >= array[currentPointer])
                return;
             swapCells(parentPointer,currentPointer);
