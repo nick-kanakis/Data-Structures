@@ -63,7 +63,7 @@ public class HashTableChaining<V> implements HashTable<V> {
         newNode.next = currentRoot;
 
         /*
-        There is no need to insert insert it in the end of the list
+        There is no need to insert it in the end of the list
         Insert in in the front so the time will be: O(1)
 
         while(currentRoot.next != null){
