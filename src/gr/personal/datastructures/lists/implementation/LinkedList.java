@@ -60,7 +60,7 @@ public class LinkedList<Item> {
         Node lastNode = head;
         Node addedNode = new Node(value);
 
-        if(head ==null){
+        if(head == null){
             head = addedNode;
             return;
         }
@@ -80,19 +80,17 @@ public class LinkedList<Item> {
         validateIndex(index);
 
         Node addedNode = new Node(value);
-        Node beforeIndexNode = head;
 
-        if(index==1){
+        if(index == 0){
             addedNode.nextNode = head;
             head = addedNode;
             //DO NOT FORGET THE RETURN!
             return;
         }
 
-        int currentPositionInList = 1;
-        while(currentPositionInList != index -1){
+        Node beforeIndexNode = head;
+        for (int i = 0; i < index - 1; i++) {
             beforeIndexNode = beforeIndexNode.nextNode;
-            currentPositionInList++;
         }
 
         addedNode.nextNode = beforeIndexNode.nextNode;
@@ -103,7 +101,7 @@ public class LinkedList<Item> {
         validateIndex(index);
 
         Node currentNode = head;
-        for (int i = 1; i < index ; i++) {
+        for (int i = 0; i < index ; i++) {
             if(currentNode == null)
                 throw new IndexOutOfBoundsException();
             currentNode = currentNode.nextNode;
@@ -114,12 +112,12 @@ public class LinkedList<Item> {
     public void remove(int index){
         validateIndex(index);
 
-        if(index == 1)
+        if(index == 0)
             head = head.nextNode;
 
         Node previousNode = head;
         Node toBeDeletedNode = head;
-        for (int i = 1; i < index ; i++) {
+        for (int i = 0; i < index ; i++) {
             if(toBeDeletedNode == null)
                 throw new IndexOutOfBoundsException();
             previousNode = toBeDeletedNode;
@@ -130,7 +128,7 @@ public class LinkedList<Item> {
     }
 
     private void validateIndex(int index){
-        if(index<=0 || index >size())
+        if(index<0 || index >size())
             throw new IndexOutOfBoundsException();
     }
 

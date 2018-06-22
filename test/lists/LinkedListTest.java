@@ -67,7 +67,7 @@ public class LinkedListTest  {
         list.add(3);
         list.add(4);
 
-        list.add(5,3);
+        list.add(5,2);
         assertEquals(5, list.size());
 
         ArrayList<Integer> expectedResults = new ArrayList();
@@ -92,7 +92,7 @@ public class LinkedListTest  {
         list.add(3);
         list.add(4);
 
-        list.add(5,1);
+        list.add(5,0);
         assertEquals(5, list.size());
 
         ArrayList<Integer> expectedResults = new ArrayList();
@@ -117,7 +117,7 @@ public class LinkedListTest  {
         list.add(3);
         list.add(4);
 
-        list.add(5,4);
+        list.add(5,3);
         assertEquals(5, list.size());
 
         ArrayList<Integer> expectedResults = new ArrayList();
@@ -137,13 +137,13 @@ public class LinkedListTest  {
     public void testGet(){
         LinkedList<Integer> list = new LinkedList();
         list.add(1);
-        assertEquals(1, list.get(1).intValue());
+        assertEquals(1, list.get(0).intValue());
         list.add(2);
-        assertEquals(2, list.get(2).intValue());
+        assertEquals(2, list.get(1).intValue());
         list.add(3);
-        assertEquals(3, list.get(3).intValue());
+        assertEquals(3, list.get(2).intValue());
         list.add(4);
-        assertEquals(4, list.get(4).intValue());
+        assertEquals(4, list.get(3).intValue());
     }
 
     @Test
@@ -154,7 +154,7 @@ public class LinkedListTest  {
         list.add(3);
         list.add(4);
 
-        list.remove(2);
+        list.remove(1);
 
         ArrayList<Integer> expectedResults = new ArrayList();
         expectedResults.add(1);
@@ -175,7 +175,7 @@ public class LinkedListTest  {
         list.add(3);
         list.add(4);
 
-        list.remove(1);
+        list.remove(0);
 
         ArrayList<Integer> expectedResults = new ArrayList();
         expectedResults.add(2);
@@ -196,7 +196,7 @@ public class LinkedListTest  {
         list.add(3);
         list.add(4);
 
-        list.remove(4);
+        list.remove(3);
 
         ArrayList<Integer> expectedResults = new ArrayList();
         expectedResults.add(1);
@@ -208,7 +208,4 @@ public class LinkedListTest  {
             assertEquals(expectedResults.get(i), results.get(i));
         }
     }
-
-
-
 }
