@@ -19,6 +19,7 @@ For a graph to be a tree it must follow some rules:
 2. **Edge** The connection between one node and another.
 3. **Path** A sequence of nodes and edges connecting a node with a descendant
 4. **Level** The level of a node is defined by 1 + (the number of connections between the node and the root).
+    Basically  `Level = Depth + 1`
 5. **Height of node** The height of a node is the number of edges on the longest path between that node and a leaf
 6. **Depth** The depth of a node is the number of edges from the tree's root node to the node.
 
