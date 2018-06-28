@@ -10,6 +10,7 @@
 2. Root of tree is always black.
 3. A red node cannot have a red parent or red child.
 4. Every path from root to a NULL node has same number of black nodes.
+5. New nodes are always red
 
 
 
