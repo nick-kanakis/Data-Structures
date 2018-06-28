@@ -116,15 +116,16 @@ public class BinarySearchTree<V> {
 
     private Node findParentOfToBeDeletedNodeWithLoop(Node currentRoot, int key) {
         Node parentOfToBeDeletedNode = null;
-        while (currentRoot!=null){
-            if (key < currentRoot.key){
+        while (currentRoot != null) {
+            if (key < currentRoot.key) {
                 parentOfToBeDeletedNode = currentRoot;
                 currentRoot = currentRoot.leftChild;
-            }
-            else if (key > currentRoot.key){
+            } else if (key > currentRoot.key) {
                 parentOfToBeDeletedNode = currentRoot;
                 currentRoot = currentRoot.rightChild;
-            } else {break;}
+            } else {
+                break;
+            }
         }
 
         if (currentRoot == null)
@@ -181,6 +182,7 @@ public class BinarySearchTree<V> {
             }
         }
     }
+
     /*
     * Traverse to the left most child of the sub-tree, and return the node;
     * */
@@ -192,6 +194,7 @@ public class BinarySearchTree<V> {
         else
             return currentRoot;
     }
+
     /*
     * 1) Find the left most node
     * 2) Return the right child
@@ -214,13 +217,12 @@ public class BinarySearchTree<V> {
     }
 
     private void printPreOrderRecursively(Node currentRoot) {
-        if (currentRoot != null)
-            System.out.print(currentRoot.value + ",");
-
-        if (currentRoot.leftChild != null)
-            printPreOrderRecursively(currentRoot.leftChild);
-        if (currentRoot.rightChild != null)
-            printPreOrderRecursively(currentRoot.rightChild);
+        if (currentRoot == null) {
+            return;
+        }
+        System.out.print(currentRoot.value + ",");
+        printPreOrderRecursively(currentRoot.leftChild);
+        printPreOrderRecursively(currentRoot.rightChild);
     }
 
     public void printInOrder() {
@@ -228,11 +230,12 @@ public class BinarySearchTree<V> {
     }
 
     private void printInOrderRecursively(Node currentRoot) {
-        if (currentRoot.leftChild != null)
-            printInOrderRecursively(currentRoot.leftChild);
+        if (currentRoot == null) {
+            return;
+        }
+        printInOrderRecursively(currentRoot.leftChild);
         System.out.print(currentRoot.value + ",");
-        if (currentRoot.rightChild != null)
-            printInOrderRecursively(currentRoot.rightChild);
+        printInOrderRecursively(currentRoot.rightChild);
     }
 
     public void printPostOrder() {
@@ -240,11 +243,11 @@ public class BinarySearchTree<V> {
     }
 
     private void printPostOrderRecursively(Node currentRoot) {
-        if (currentRoot.leftChild != null)
-            printPostOrderRecursively(currentRoot.leftChild);
-        if (currentRoot.rightChild != null)
-            printPostOrderRecursively(currentRoot.rightChild);
-        if (currentRoot != null)
-            System.out.print(currentRoot.value + ",");
+        if (currentRoot == null) {
+            return;
+        }
+        printPostOrderRecursively(currentRoot.leftChild);
+        printPostOrderRecursively(currentRoot.rightChild);
+        System.out.print(currentRoot.value + ",");
     }
 }
