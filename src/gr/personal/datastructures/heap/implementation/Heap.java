@@ -10,8 +10,12 @@ import java.lang.reflect.Array;
 public class Heap {
 
     private static final int ORIGINAL_ARRAY_SIZE = 10;
-    private int[] array = new int[ORIGINAL_ARRAY_SIZE];
+    private int[] array ;
     private int lastOccupiedPointer = -1;
+
+    public Heap() {
+        array = new int[ORIGINAL_ARRAY_SIZE];
+    }
 
     public void insert(int value){
         if( lastOccupiedPointer >= array.length -1  )
@@ -47,11 +51,7 @@ public class Heap {
             if(rightChildPointer > array.length -1 || leftChildPointer > array.length -1)
                 break;
 
-            int maxChildPointer;
-            if(array[leftChildPointer] > array[rightChildPointer] )
-                maxChildPointer = leftChildPointer;
-            else
-                maxChildPointer = rightChildPointer;
+            int maxChildPointer = findMaxChildOfIndex(currentPointer);
 
             if(array[currentPointer] < array[maxChildPointer])
                 swapCells(currentPointer, maxChildPointer);
