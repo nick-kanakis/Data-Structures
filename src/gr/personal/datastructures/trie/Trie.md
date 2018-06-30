@@ -17,7 +17,7 @@ In the example shown, keys are listed in the nodes and values below them. Each c
 |:-------:|:-------:|:-------:|:-------:|
 | O(M) | O(M) | O(M) | O(M) |
 
-Where `M` is the maximum key length
+Where `M` is the maximum world length
 
 ## Space Complexity
 Let `w` be the amount of words in the trie and
