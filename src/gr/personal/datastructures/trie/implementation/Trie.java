@@ -18,8 +18,11 @@ public class Trie {
         boolean isEndWord = false;
     }
 
-    private Node root = new Node();
+    private Node root;
 
+    public Trie() {
+        root = new Node();
+    }
 
     /*
     * Insert Algorithm
@@ -47,10 +50,10 @@ public class Trie {
         char[] characters = newWord.toCharArray();
         Node currentNode = root;
 
-        for (int i = 0; i < characters.length; i++) {
-            if(!currentNode.children.containsKey(characters[i]))
-                currentNode.children.put(characters[i],new Node());
-            currentNode = currentNode.children.get(characters[i]);
+        for (char c: characters) {
+            if(!currentNode.children.containsKey(c))
+                currentNode.children.put(c,new Node());
+            currentNode = currentNode.children.get(c);
         }
         currentNode.isEndWord = true;
     }
@@ -87,6 +90,8 @@ public class Trie {
    *    check if the current node has no children, so it can be deleted by the recursive caller.
    * */
     private boolean deleteRecursively(Node currentNode, char[] charArrayWord, int indexInCharArray) {
+        if (currentNode == null)
+            return false;
         if (indexInCharArray == charArrayWord.length) {
             //when end of word is reached only delete if current.endOfWord is true.
             if (!currentNode.isEndWord) {
@@ -120,9 +125,9 @@ public class Trie {
         char[] charPrefix = prefix.toCharArray();
         Node currentNode = root;
 
-        for (int i = 0; i < charPrefix.length; i++) {
-            if(currentNode.children.containsKey(charPrefix[i]))
-                currentNode = currentNode.children.get(charPrefix[i]);
+        for (char c: charPrefix) {
+            if(currentNode.children.containsKey(c))
+                currentNode = currentNode.children.get(c);
             else
                 return false;
         }
