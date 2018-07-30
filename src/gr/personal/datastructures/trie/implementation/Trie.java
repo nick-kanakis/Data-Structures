@@ -134,7 +134,6 @@ public class Trie {
         return true;
     }
 
-
     public boolean searchWord(String word){
         if(word==null)
             return false;
@@ -152,6 +151,4 @@ public class Trie {
             return true;
         return false;
     }
-
-
 }

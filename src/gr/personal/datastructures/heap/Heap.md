@@ -1,5 +1,4 @@
-# Heap  Theory
-
+# Heap Theory
 
 ## Basic concepts
 

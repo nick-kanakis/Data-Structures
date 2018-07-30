@@ -1,6 +1,5 @@
 # Graphs Theory
 
-
 ## Basic concepts
 
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Directed.svg/250px-Directed.svg.png "graphs")
@@ -11,9 +10,6 @@ These pairs are known as edges for an undirected graph and as directed edges for
 
 A graph data structure may also associate to each edge some edge value, 
 such as a symbolic label or a numeric attribute (cost, capacity, length, etc.).
-
-
-
 
 ## Time Complexity
 

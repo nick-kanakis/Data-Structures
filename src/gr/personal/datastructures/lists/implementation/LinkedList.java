@@ -132,8 +132,6 @@ public class LinkedList<Item> {
             throw new IndexOutOfBoundsException();
     }
 
-
-
     public List<Item> returnValues(){
         Node tempNode = head;
         ArrayList<Item> result = new ArrayList<>();
@@ -145,5 +143,4 @@ public class LinkedList<Item> {
         result.add(tempNode.value);
         return result;
     }
-
 }
